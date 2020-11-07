@@ -90,7 +90,7 @@ def chat_messages(message):
         new_message = Message()
         new_message.client = client
         new_message.manager = client.manager
-        new_message.text = message.text
+        new_message.message = message.text
         new_message.status = 'received'
         new_message.save()
         bot.send_message(message.chat.id, 'Sended... Please wait till manager answer you.')

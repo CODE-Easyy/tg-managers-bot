@@ -66,6 +66,11 @@ class Manager(AbstractBaseUser, PermissionsMixin):
         self.token = get_new_token()
         self.save()
 
+    def save(self, *args, **kwargs): 
+        if not (self.token and len(self.token) > 0):
+            self.set_token()
+        super(Manager, self).save(*args, **kwargs) 
+
 
     def get_full_name(self):
         return self.name
