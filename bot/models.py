@@ -26,7 +26,7 @@ class Client(models.Model):
 
 
     def __str__(self):
-        return self.chat_id
+        return f'self.chat_id'
 
 class Message(models.Model):
     manager = models.ForeignKey(
