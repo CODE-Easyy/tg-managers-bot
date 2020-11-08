@@ -40,7 +40,7 @@ def send_message(request):
             message.save()
             bot.send_message(
                 chat_id=data['client_chat_id'],
-                text=f"Message from your manager {request.user.name}: \n {data['message']}"
+                text=f"Message from your manager {request.user.name}: \n -- {data['message']}"
             )
 
             return Response(
