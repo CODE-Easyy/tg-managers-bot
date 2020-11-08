@@ -64,10 +64,10 @@ def send_message(request):
             status=status.HTTP_400_BAD_REQUEST
         )
 
-@api_view(['GET'])
+@api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def messages_list(request):
-    if request.method == 'GET':
+    if request.method == 'POST':
         messages = Message.objects.filter(
             manager__token=request.user.token
         ).filter(
@@ -83,7 +83,7 @@ def messages_list(request):
     else:
         return Response(
             data={
-                'error': "Only GET request\'s accepted."
+                'error': "Only POST request\'s accepted."
             },
             status=status.HTTP_400_BAD_REQUEST
         )
